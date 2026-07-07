@@ -1,0 +1,17 @@
+<%= link_to "All Restaurants", restaurants_path %>
+<h1><%= @restaurant.name %></h1>
+
+<h2>Reviews</h2>
+<%# make a link to create a new review %>
+<%= link_to "Add a Review", new_restaurant_review_path(@restaurant) %>
+<% @restaurant.reviews.each do |review| %>
+    <li>
+        <%= review.rating %>
+        <%= review.content%>
+
+        <%= link_to "Delete",
+            restaurant_review_path(@restaurant, review),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    </li> <%# We want to display the content and rating for each review %>
+<% end %>
+

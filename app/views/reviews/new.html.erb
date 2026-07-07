@@ -1,0 +1,10 @@
+<%# back link to restaurants show page %>
+<%= link_to "All Restaurants", restaurants_path %>
+<%= link_to "Back to Restaurant", restaurant_path(@restaurant) %>
+<h1>Here are the reviews</h1>
+
+<%= simple_form_for [@restaurant, @review] do |f| %>
+    <%= f.input :content %>
+    <%= f.input :rating %>
+    <%= f.button :submit %>
+<% end %>
